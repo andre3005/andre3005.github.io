@@ -34,11 +34,12 @@ const App = () => {
         <section className="section hero-section">
           <div className="section-overlay"></div>
           <div className="hero-content">
-            {/* <h1 className="hero-title">Welcome to My Portfolio</h1>
-            <p className="hero-subtitle">
-              Passionate developer creating amazing digital experiences
+            <h1 className="hero-title">UzK Business Analytics and Econometrics Master's Student</h1>
+            <p className="hero-subtitle"> 
+              As a Master's Student in Business Analytics and Econometrics at the University of Cologne,
+              I am passionate about leveraging data to drive business insights and decisions.
             </p>
-            <button className="cta-button">Explore My Work</button> */}
+            <button className="cta-button">Explore My Work</button>
           </div>
         </section>
 
@@ -47,7 +48,8 @@ const App = () => {
           <div className="section-overlay"></div>
           <div className="section-content">
             <h2 className="section-title">About Me</h2>
-            <div className="about-card">
+            <div className="about-grid">
+              <div className="about-card">
               <div className="about-text">
                 <p>
                   I'm a passionate web developer with expertise in modern technologies. 
@@ -57,6 +59,7 @@ const App = () => {
                   My journey in web development started several years ago, and I've been 
                   constantly learning and growing ever since.
                 </p>
+              </div>
               </div>
               <div className="skills-card">
                 <h3>Skills</h3>

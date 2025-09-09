@@ -91,7 +91,7 @@ button:focus-visible {
   right: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -130,6 +130,7 @@ button:focus-visible {
 
 /* Main Content */
 .main-content {
+  font-family: 'Libertinus Keyboard', monospace;
   position: relative;
   z-index: 1;
 }
@@ -150,7 +151,7 @@ button:focus-visible {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   z-index: 1;
 }
 
@@ -170,20 +171,42 @@ button:focus-visible {
 }
 
 /* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;          /* keep hero full viewport height */
+    display: flex;
+    align-items: center;        /* vertical centering */
+    justify-content: center;    /* horizontal centering */
+    overflow: hidden;
+}
+
 .hero-section .section-overlay {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .hero-content {
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  color: white;
+    position: relative;
+    z-index: 2;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* center children horizontally */
+    text-align: center;         /* center multiline text */
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 1100px;          /* constrain content for readability */
+    padding: 2rem;
+
 }
 
 .hero-title {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  margin: 0;
+  width: 100%;
+  max-width: 70ch;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  margin-bottom: 0.5rem;
+  font-weight: 900;
   background: #ffffff;
   /* background: linear-gradient(135deg, #60a5fa, #a855f7); */
   -webkit-background-clip: text;
@@ -192,12 +215,16 @@ button:focus-visible {
 }
 
 .hero-subtitle {
-  font-size: 1.2rem;
+  width: 100%;
+  max-width: 60ch;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
   margin-bottom: 2rem;
   color: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
 }
 
 .cta-button {
+
   background-color: #3b82f6;
   color: white;
   padding: 1rem 2rem;
@@ -206,7 +233,22 @@ button:focus-visible {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  background: linear-gradient(90deg, #00FFFF 0%, #007BFF 25%, #8A2BE2 50%, #FF00CC 75%, #FF7A00 100%);
+  background-size: 300% 100%;     /* make gradient wider so it can move */
+  animation: cta-gradient 6s linear infinite;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+@keyframes cta-gradient {
+0%   { background-position: 0% 50%; }
+50%  { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+.cta-button::before { animation: none; background-position: 50% 50%; }
+.cta-button { transition: none; }
 }
 
 .cta-button:hover {
@@ -218,7 +260,7 @@ button:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: stretch;
 }
 
 .about-card {
