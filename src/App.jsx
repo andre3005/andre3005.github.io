@@ -24,10 +24,8 @@ const App = () => {
     <div className="app">
       {/* Fixed Background */}
       <div className="background-fixed"></div>
-
       {/* Header */}
       <Header />
-
       {/* Main Content */}
       <main className="main-content">
         {/* Hero Section */}
@@ -37,9 +35,9 @@ const App = () => {
             <h1 className="hero-title">UzK Business Analytics and Econometrics Master's Student</h1>
             <p className="hero-subtitle"> 
               As a Master's Student in Business Analytics and Econometrics at the University of Cologne,
-              I am passionate about leveraging data to drive business insights and decisions.
+              I am passionate about leveraging data to drive business insights and decisions. 
             </p>
-            <button className="cta-button">Explore My Work</button>
+            {/* <button className="cta-button">Explore My Work</button> */}
           </div>
         </section>
 

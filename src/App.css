@@ -84,7 +84,7 @@ button:focus-visible {
 
 /* Header Styles */
 .header {
-  font-family: 'Libertinus Keyboard', monospace;
+  font-family: var(--site-font);
   position: fixed;
   top: 0;
   left: 0;
@@ -105,7 +105,7 @@ button:focus-visible {
 }
 
 .header-logo {
-  font-family: 'Libertinus Keyboard', monospace;
+  font-family: var(--site-font);
   font-size: 1.8rem;
   font-weight: bold;
   color: white;
@@ -130,7 +130,7 @@ button:focus-visible {
 
 /* Main Content */
 .main-content {
-  font-family: 'Libertinus Keyboard', monospace;
+  font-family: var(--site-font);
   position: relative;
   z-index: 1;
 }
@@ -151,7 +151,7 @@ button:focus-visible {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
@@ -174,7 +174,7 @@ button:focus-visible {
 .hero-section {
     position: relative;
     width: 100%;
-    min-height: 100vh;          /* keep hero full viewport height */
+    min-height: 70vh;          /* keep hero full viewport height */
     display: flex;
     align-items: center;        /* vertical centering */
     justify-content: center;    /* horizontal centering */
@@ -182,7 +182,7 @@ button:focus-visible {
 }
 
 .hero-section .section-overlay {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .hero-content {
