@@ -77,6 +77,7 @@ button:focus-visible {
 /* App.css */
 
 
+
 .app {
   position: relative;
 }
@@ -646,4 +647,68 @@ padding: 0.25rem 0;
 background: rgba(59,246,65,0.12); 
 transform: translateY(-3px);
 color: #3bf641; 
+}
+
+
+/* Custom Cursor Styles */
+body {
+  cursor: none !important;
+}
+
+a, button, img, .hoverable {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: none;
+}
+
+.custom-cursor__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #3bf641;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+.custom-cursor__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #3bf641;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.2s ease;
+  opacity: 0.5;
+}
+
+.custom-cursor--hovering .custom-cursor__dot {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-cursor--hovering .custom-cursor__ring {
+  width: 60px;
+  height: 60px;
+  opacity: 0.8;
+}
+
+/* Hide custom cursor on mobile */
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none;
+  }
+  
+  body, a, button, img, .hoverable {
+    cursor: auto !important;
+  }
 }

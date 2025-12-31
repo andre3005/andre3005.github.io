@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css'
 import profileSrc from "./assets/profilbild.jpeg";
+import CustomCursor from './components/CustomCursor';
+
 
 
 // Header Component
@@ -24,6 +26,7 @@ const Header = () => {
 const App = () => {
   return (
     <div className="app">
+      <CustomCursor />
       {/* Fixed Background */}
       <div className="background-fixed"></div>
       {/* Header */}
