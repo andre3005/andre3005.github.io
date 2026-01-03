@@ -157,7 +157,7 @@ const App = () => {
           <div className="section-content">
             <h2 className="section-title">Get In Touch</h2>
             <p className="contact-intro">
-              I'm always interested in new opportunities, challenges, and collaborations.
+              I'm always interested in new opportunities, and collaborations.
             </p>
             <div className="contact-form">
               <div className="form-row">
