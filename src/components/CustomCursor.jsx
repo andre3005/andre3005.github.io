@@ -39,8 +39,7 @@ const CustomCursor = () => {
         top: `${position.y}px`,
       }}
     >
-      <div className="custom-cursor__dot" />
-      <div className="custom-cursor__ring" />
+      <div className="custom-cursor__circle" />
     </div>
   );
 };

@@ -649,7 +649,6 @@ transform: translateY(-3px);
 color: #3bf641; 
 }
 
-
 /* Custom Cursor Styles */
 body {
   cursor: none !important;
@@ -664,42 +663,28 @@ a, button, img, .hoverable {
   pointer-events: none;
   z-index: 9999;
   transition: none;
+  mix-blend-mode: difference;
 }
 
-.custom-cursor__dot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background-color: #3bf641;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease;
-}
-
-.custom-cursor__ring {
+.custom-cursor__circle {
   position: absolute;
   top: 0;
   left: 0;
   width: 40px;
   height: 40px;
+  background-color: transparent;
   border: 2px solid #3bf641;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, opacity 0.2s ease;
-  opacity: 0.5;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.custom-cursor--hovering .custom-cursor__dot {
-  width: 4px;
-  height: 4px;
-}
-
-.custom-cursor--hovering .custom-cursor__ring {
+/* When hovering: make it bigger with filled background */
+.custom-cursor--hovering .custom-cursor__circle {
   width: 60px;
   height: 60px;
-  opacity: 0.8;
+  background-color: rgb(46, 56, 255); /* Purple with slight transparency */
+  border-color: #3651fd;
 }
 
 /* Hide custom cursor on mobile */
