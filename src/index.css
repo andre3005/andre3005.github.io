@@ -4,16 +4,16 @@
   font-weight: 400;
   color-scheme: light;
   color: #17181c;
-  background-color: #faf8f5;
+  background-color: #f8f7f4;
 
-  --bg: #faf8f5;
+  --bg: #f8f7f4;
   --surface: #ffffff;
   --text: #17181c;
   --text-muted: #5c5e66;
   --border: #e7e4de;
-  --accent: #b5502f;
-  --accent-hover: #9c4327;
-  --accent-rgb: 181, 80, 47;
+  --accent: #0057ff;
+  --accent-hover: #0046cc;
+  --accent-rgb: 0, 87, 255;
 }
 
 * {
