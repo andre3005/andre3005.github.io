@@ -1,10 +1,16 @@
 :root {
   --site-font: monospace, 'Space Mono', monospace, 'Liberation Mono', 'Courier New', Courier, monospace;
+  --site-serif: 'Fraunces', 'Georgia', serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #06080c;
+
+  --pastel-coral: #ff9d81;
+  --pastel-amber: #f3c877;
+  --pastel-blue: #86d3e0;
+  --pastel-lavender: #b6a6e0;
 }
 
 * {

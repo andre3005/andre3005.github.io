@@ -6,13 +6,54 @@ import CustomCursor from './components/CustomCursor';
 import TiltCard from './components/TiltCard';
 import Magnetic from './components/Magnetic';
 import KineticText from './components/KineticText';
+import Squiggle from './components/Squiggle';
+import Accordion from './components/Accordion';
+import ProjectStack from './components/ProjectStack';
 import { fadeUp, staggerContainer, viewportOnce } from './lib/motion';
 
 const NAV_SECTIONS = [
   { id: 'about', label: "That's Me!" },
+  { id: 'focus', label: 'Focus' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
+];
+
+const STATS = [
+  { value: '2', label: 'Disciplines combined: Data Science & UX' },
+  { value: '1', label: 'MSc in Business Analytics & Econometrics, in progress' },
+  { value: '7', label: 'Core tools: Python, R, SQL, Figma, Tableau, Power BI, SAP' },
+];
+
+const FOCUS_ITEMS = [
+  {
+    title: 'Product Design',
+    content: 'Turning research and data into interfaces that people actually want to use.',
+  },
+  {
+    title: 'Data-informed UX Research',
+    content: 'Pairing qualitative research with quantitative analysis to validate what really works.',
+  },
+  {
+    title: 'Growth Experiments',
+    content: 'Running structured experiments where design and statistics meet to move the needle.',
+  },
+];
+
+const TOOL_TAGS = ['Python', 'R', 'SQL', 'Figma', 'Tableau', 'Power BI', 'SAP'];
+const BUSINESS_TAGS = ['Strategic Analysis', 'Stakeholder Communication', 'Product Demonstration'];
+
+const PROJECTS = [
+  {
+    title: 'ML Project 01',
+    badge: 'Coming soon',
+    description: 'A full write-up is on its way, from data ingestion through modeling to measured results.',
+  },
+  {
+    title: 'ML Project 02',
+    badge: 'Coming soon',
+    description: 'Another case study currently in progress — check back soon for the details.',
+  },
 ];
 
 // Header Component
@@ -95,7 +136,20 @@ const App = () => {
           <div className="section-overlay"></div>
           <Motion.div className="hero-content" style={{ y: heroY }}>
             <h1 className="hero-title">
-              <KineticText text="UzK Business Analytics and Econometrics Master's Student" />
+              <KineticText text="I build with data." className="hero-title-mono" />
+              <Motion.span
+                className="hero-title-serif"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              >
+                I design for{' '}
+                <span className="hero-title-accent-word">
+                  people
+                  <Squiggle variant="underline" className="hero-squiggle" />
+                </span>
+                .
+              </Motion.span>
             </h1>
             <p className="hero-subtitle">
               As a Master's Student in Business Analytics and Econometrics at the University of Cologne,
@@ -106,6 +160,27 @@ const App = () => {
                 Explore My Work
               </button>
             </Magnetic>
+          </Motion.div>
+        </section>
+
+        {/* Stats Strip */}
+        <section className="stats-strip">
+          <Motion.div
+            className="stats-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={staggerContainer}
+          >
+            {STATS.map((stat) => (
+              <Motion.div className="stat-item" key={stat.label} variants={fadeUp}>
+                <span className="stat-number-wrap">
+                  <span className="stat-number">{stat.value}</span>
+                  <Squiggle variant="underline" className="stat-squiggle" />
+                </span>
+                <span className="stat-label">{stat.label}</span>
+              </Motion.div>
+            ))}
           </Motion.div>
         </section>
 
@@ -156,6 +231,30 @@ const App = () => {
           </Motion.div>
         </section>
 
+        {/* Focus Areas Section */}
+        <section id="focus" className="section focus-section">
+          <div className="section-overlay"></div>
+          <Motion.div
+            className="section-content"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={staggerContainer}
+          >
+            <Motion.h2 className="section-title" variants={fadeUp}>
+              Focus Areas
+            </Motion.h2>
+            <TiltCard className="focus-panel" variants={fadeUp} maxTilt={3}>
+              <div className="focus-grid">
+                <div className="focus-intro">
+                  <p>Seeking roles at the intersection of UX and data.</p>
+                </div>
+                <Accordion items={FOCUS_ITEMS} />
+              </div>
+            </TiltCard>
+          </Motion.div>
+        </section>
+
         {/* Skills Section */}
         <section id="skills" className="section skills-section">
           <Motion.div
@@ -195,11 +294,23 @@ const App = () => {
               <TiltCard className="skills-card-down" variants={fadeUp}>
                 <div className="foundation-column">
                   <h4>Tools & Technologies</h4>
-                  <p>Python | R | SQL | Figma | Tableau | Power BI | SAP</p>
+                  <div className="tag-mosaic-wrap">
+                    <div className="skills-list">
+                      {TOOL_TAGS.map((tag) => (
+                        <span className="skill-tag" key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="foundation-column">
                   <h4>Business & Communication</h4>
-                  <p>Strategic Analysis | Stakeholder Communication | Product Demonstration</p>
+                  <div className="tag-mosaic-wrap">
+                    <div className="skills-list">
+                      {BUSINESS_TAGS.map((tag) => (
+                        <span className="skill-tag" key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </TiltCard>
             </div>
@@ -223,24 +334,9 @@ const App = () => {
               Machine learning project write-ups are on their way — case studies from my MSc coursework and
               independent work, complete with problem framing, approach, and measured results.
             </Motion.p>
-            <div className="projects-grid">
-              <TiltCard className="project-card" variants={fadeUp}>
-                <div className="project-image"></div>
-                <span className="project-badge">Coming soon</span>
-                <h3 className="project-title">ML Project 01</h3>
-                <p className="project-description">
-                  A full write-up is on its way, from data ingestion through modeling to measured results.
-                </p>
-              </TiltCard>
-              <TiltCard className="project-card" variants={fadeUp}>
-                <div className="project-image"></div>
-                <span className="project-badge">Coming soon</span>
-                <h3 className="project-title">ML Project 02</h3>
-                <p className="project-description">
-                  Another case study currently in progress — check back soon for the details.
-                </p>
-              </TiltCard>
-            </div>
+            <Motion.div variants={fadeUp}>
+              <ProjectStack projects={PROJECTS} />
+            </Motion.div>
           </Motion.div>
         </section>
 

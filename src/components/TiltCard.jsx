@@ -1,4 +1,11 @@
-import { motion as Motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
+import {
+  motion as Motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  useMotionTemplate,
+  useReducedMotion,
+} from 'framer-motion';
 
 const TiltCard = ({ children, className = '', maxTilt = 7, ...rest }) => {
   const prefersReducedMotion = useReducedMotion();
@@ -9,6 +16,9 @@ const TiltCard = ({ children, className = '', maxTilt = 7, ...rest }) => {
 
   const rotateX = useTransform(springY, [0, 1], [maxTilt, -maxTilt]);
   const rotateY = useTransform(springX, [0, 1], [-maxTilt, maxTilt]);
+  const glareX = useTransform(springX, (v) => `${v * 100}%`);
+  const glareY = useTransform(springY, (v) => `${v * 100}%`);
+  const glareBackground = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgba(255, 255, 255, 0.22), transparent 55%)`;
 
   const handleMouseMove = (e) => {
     if (prefersReducedMotion) return;
@@ -34,6 +44,9 @@ const TiltCard = ({ children, className = '', maxTilt = 7, ...rest }) => {
       }
       {...rest}
     >
+      {!prefersReducedMotion && (
+        <Motion.div className="tilt-glare" style={{ background: glareBackground }} />
+      )}
       {children}
     </Motion.div>
   );
