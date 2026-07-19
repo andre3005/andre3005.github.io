@@ -1,12 +1,11 @@
 import { motion as Motion, useReducedMotion } from 'framer-motion';
 
 const word = {
-  hidden: { opacity: 0, y: '0.5em', filter: 'blur(6px)' },
+  hidden: { opacity: 0, y: '0.5em' },
   visible: {
     opacity: 1,
     y: '0em',
-    filter: 'blur(0px)',
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] },
   },
 };
 

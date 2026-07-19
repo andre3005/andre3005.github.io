@@ -2,11 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { motion as Motion, useScroll, useTransform } from 'framer-motion';
 import './App.css';
 import profileSrc from './assets/profilbild.jpeg';
-import CustomCursor from './components/CustomCursor';
 import TiltCard from './components/TiltCard';
 import Magnetic from './components/Magnetic';
 import KineticText from './components/KineticText';
-import Squiggle from './components/Squiggle';
 import Accordion from './components/Accordion';
 import ProjectStack from './components/ProjectStack';
 import { fadeUp, staggerContainer, viewportOnce } from './lib/motion';
@@ -116,34 +114,15 @@ const App = () => {
 
   return (
     <div className="app">
-      <CustomCursor />
-      {/* Fixed animated background */}
-      <div className="background-fixed">
-        <div className="aurora-blob" />
-      </div>
       {/* Header */}
       <Header scrolled={scrolled} activeSection={activeSection} scrollProgress={scrollYProgress} />
       {/* Main Content */}
       <main className="main-content">
         {/* Hero Section */}
         <section ref={heroRef} className="section hero-section">
-          <div className="section-overlay"></div>
           <Motion.div className="hero-content" style={{ y: heroY }}>
             <h1 className="hero-title">
-              <KineticText text="I build with data." className="hero-title-mono" />
-              <Motion.span
-                className="hero-title-serif"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              >
-                I design for{' '}
-                <span className="hero-title-accent-word">
-                  people
-                  <Squiggle variant="underline" className="hero-squiggle" />
-                </span>
-                .
-              </Motion.span>
+              <KineticText text="I build with data, and design for people." />
             </h1>
             <p className="hero-subtitle">
               As a Master's Student in Business Analytics and Econometrics at the University of Cologne,
@@ -159,7 +138,6 @@ const App = () => {
 
         {/* About Section */}
         <section id="about" className="section about-section">
-          <div className="section-overlay"></div>
           <Motion.div
             className="section-content"
             initial="hidden"
@@ -206,7 +184,6 @@ const App = () => {
 
         {/* Focus Areas Section */}
         <section id="focus" className="section focus-section">
-          <div className="section-overlay"></div>
           <Motion.div
             className="section-content"
             initial="hidden"
@@ -286,7 +263,6 @@ const App = () => {
 
         {/* Projects Section */}
         <section id="projects" className="section projects-section">
-          <div className="section-overlay"></div>
           <Motion.div
             className="section-content"
             initial="hidden"
@@ -309,7 +285,6 @@ const App = () => {
 
         {/* Contact Section */}
         <section id="contact" className="section contact-section">
-          <div className="section-overlay"></div>
           <Motion.div
             className="section-content"
             initial="hidden"
