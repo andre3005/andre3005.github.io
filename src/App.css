@@ -163,12 +163,12 @@ button:focus-visible {
   right: 100%;
   bottom: -4px;
   height: 2px;
-  background: #3bf641;
+  background: var(--pastel-blue);
   transition: right 0.25s ease;
 }
 
 .nav-link:hover {
-  color: #3bf641;
+  color: var(--pastel-blue);
 }
 
 .nav-link:hover::after {
@@ -176,7 +176,7 @@ button:focus-visible {
 }
 
 .nav-link--active {
-  color: #3bf641;
+  color: var(--pastel-blue);
 }
 
 .nav-link--active::after {
@@ -316,7 +316,7 @@ button:focus-visible {
 }
 
 .cta-button {
-  color: #1a1206;
+  color: #fdf6ee;
   padding: 1rem 2rem;
   border: none;
   border-radius: 999px;
@@ -452,167 +452,93 @@ box-sizing: border-box;
   margin-bottom: 1rem;
 }
 
-.section-padding {
-  height: 2rem; /* space between text and skills cards */
-}
-
-.skills-pillars-container,
-.skills-foundation-container {
+.skills-panel {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  padding: 2.5rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 840px;
+  flex-direction: column;
+  gap: 1.75rem;
+  text-align: left;
 }
 
-.skills-card {
-background-color: rgba(255, 255, 255, 0.1);
-backdrop-filter: blur(14px);
-padding: 1rem 1.25rem;
-min-width: 320px;
-max-width: 400px;
-border-radius: 28px;
-border: 1px solid rgba(255, 255, 255, 0.2);
-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-position: relative;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-gap: 0.75rem;
-align-items: center;
-text-align: center;
+.skills-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
 }
 
+.skills-columns h3 {
+  margin-bottom: 0.5rem;
+}
 
-.skills-card-down {
-background-color: rgba(255, 255, 255, 0.1);
-backdrop-filter: blur(14px);
-padding: 1rem 1.25rem;
-border-radius: 28px;
-width: 810px;
-border: 1px solid rgba(255, 255, 255, 0.2);
-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
-position: relative;
-overflow: hidden;
-display: flex;
-flex-direction: column;
-gap: 0.75rem;
-align-items: center;
-text-align: center;
+.skills-columns p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
 }
 
 .skills-divider {
-width: 60%;
+width: 100%;
 height: 1px;
-background: rgba(255,255,255,0.06);
-margin: 0.25rem auto;
+background: rgba(255,255,255,0.12);
 border-radius: 1px;
 }
-.tag-mosaic-wrap {
-  transform: rotate(-4deg);
-  padding: 1.5rem 0 0.5rem;
+
+.foundation-column h4 {
+  margin-bottom: 0.9rem;
 }
 
 .skills-list {
 display: flex;
-gap: 0.9rem;
+gap: 0.75rem;
 flex-wrap: wrap;
-justify-content: center;
 padding: 0.25rem 0;
-max-width: 700px;
 }
 @media (max-width: 820px) {
 .photo-card__inner { width: 70%; max-width: 220px; }
-.skills-list { gap: 0.6rem; }
-.tag-mosaic-wrap { transform: rotate(-2deg); }
+.skills-list { gap: 0.5rem; }
+.skills-columns { grid-template-columns: 1fr; }
 }
 
 .skill-tag {
-    color: #1a1206;
-    padding: 0.55rem 1.15rem;
-    border-radius: 16px;
+    color: #fdf6ee;
+    padding: 0.5rem 1.1rem;
+    border-radius: 14px;
     font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     display: inline-block;
     transition: transform 180ms ease, box-shadow 180ms ease;
     cursor: default;
     user-select: none;
-    transform: rotate(var(--tag-tilt, 0deg));
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.skill-tag:nth-child(4n+1) { background: linear-gradient(135deg, var(--pastel-coral), var(--pastel-amber)); --tag-tilt: -3deg; }
-.skill-tag:nth-child(4n+2) { background: linear-gradient(135deg, var(--pastel-amber), var(--pastel-blue)); --tag-tilt: 2deg; }
-.skill-tag:nth-child(4n+3) { background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-lavender)); --tag-tilt: -2deg; }
-.skill-tag:nth-child(4n+4) { background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-coral)); --tag-tilt: 3deg; }
+.skill-tag:nth-child(4n+1) { background: linear-gradient(135deg, var(--pastel-coral), var(--pastel-amber)); }
+.skill-tag:nth-child(4n+2) { background: linear-gradient(135deg, var(--pastel-amber), var(--pastel-blue)); }
+.skill-tag:nth-child(4n+3) { background: linear-gradient(135deg, var(--pastel-blue), var(--pastel-lavender)); }
+.skill-tag:nth-child(4n+4) { background: linear-gradient(135deg, var(--pastel-lavender), var(--pastel-coral)); }
 
 .skill-tag:hover,
 .skill-tag:focus {
-    transform: rotate(0deg) translateY(-3px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
     outline: none;
 }
 
 /* keyboard focus visible (high-contrast) */
 .skill-tag:focus-visible {
-    box-shadow: 0 0 0 3px rgba(59,246,65,0.4);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.4);
 }
 
-
-/* Stats Strip */
-.stats-strip {
-  position: relative;
-  z-index: 1;
-  padding: 5rem 2rem;
-}
-
-.stats-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3rem;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  text-align: center;
-  max-width: 260px;
-}
-
-.stat-number-wrap {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.5rem;
-}
-
-.stat-number {
-  font-family: var(--site-serif);
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
-  color: #ffffff;
-}
-
-.stat-squiggle {
-  position: absolute;
-  left: -8%;
-  bottom: -0.3rem;
-  width: 116%;
-  height: 0.7rem;
-  pointer-events: none;
-}
-
-.stat-label {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 220px;
-}
 
 /* Focus Areas (accordion) */
 .focus-panel {
@@ -711,7 +637,7 @@ max-width: 700px;
   min-height: 320px;
 }
 
-.project-stack-card {
+.project-card.project-stack-card {
   position: absolute;
   inset: 0;
 }
@@ -790,9 +716,9 @@ max-width: 700px;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #3bf641;
-  background: rgba(59, 246, 65, 0.12);
-  border: 1px solid rgba(59, 246, 65, 0.3);
+  color: var(--pastel-blue);
+  background: rgba(var(--accent-rgb), 0.16);
+  border: 1px solid rgba(var(--accent-rgb), 0.4);
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
   margin-bottom: 0.75rem;
@@ -849,8 +775,8 @@ max-width: 700px;
 
 .form-input:focus, .form-textarea:focus {
   outline: none;
-  border-color: #3bf641;
-  box-shadow: 0 0 0 2px rgba(59, 246, 65, 0.3);
+  border-color: var(--pastel-blue);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.3);
 }
 
 .form-textarea {
@@ -871,8 +797,8 @@ max-width: 700px;
 }
 
 .submit-button:hover {
-  background-color: #3bf641;
-  color:#000000;
+  background-color: var(--pastel-blue);
+  color: #fdf6ee;
 }
 
 .form-spacer {
@@ -944,9 +870,9 @@ max-width: 700px;
     transition: background-color 160ms ease, transform 160ms ease;
 }
 .social-link--linkedin:hover {
-background: rgba(59,246,65,0.12); 
+background: rgba(var(--accent-rgb), 0.16);
 transform: translateY(-3px);
-color: #3bf641; 
+color: var(--pastel-blue);
 }
 
 /* Custom Cursor Styles */
@@ -963,28 +889,27 @@ a, button, img, .hoverable {
   pointer-events: none;
   z-index: 9999;
   transition: none;
-  mix-blend-mode: difference;
 }
 
 .custom-cursor__circle {
   position: absolute;
   top: 0;
   left: 0;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border: 2px solid #3bf641;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
+  background: radial-gradient(circle, rgba(253, 246, 238, 0.9), rgba(var(--accent-rgb), 0.55) 55%, transparent 78%);
+  filter: blur(1.5px);
+  mix-blend-mode: screen;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
 }
 
-/* When hovering: make it bigger with filled background */
+/* When hovering: soften and widen the glow instead of a hard ring */
 .custom-cursor--hovering .custom-cursor__circle {
-  width: 60px;
-  height: 60px;
-  background-color: rgb(46, 56, 255); /* Purple with slight transparency */
-  border-color: #3651fd;
+  width: 34px;
+  height: 34px;
+  opacity: 0.85;
 }
 
 /* Hide custom cursor on mobile */

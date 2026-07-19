@@ -1,5 +1,5 @@
 :root {
-  --site-font: monospace, 'Space Mono', monospace, 'Liberation Mono', 'Courier New', Courier, monospace;
+  --site-font: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --site-serif: 'Fraunces', 'Georgia', serif;
   line-height: 1.5;
   font-weight: 400;
@@ -7,10 +7,11 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #06080c;
 
-  --pastel-coral: #ff9d81;
-  --pastel-amber: #f3c877;
-  --pastel-blue: #86d3e0;
-  --pastel-lavender: #b6a6e0;
+  --pastel-coral: #c96f52;
+  --pastel-amber: #c99a45;
+  --pastel-blue: #3f7f92;
+  --pastel-lavender: #7c6a96;
+  --accent-rgb: 63, 127, 146;
 }
 
 * {

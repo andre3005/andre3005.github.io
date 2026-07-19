@@ -19,24 +19,18 @@ const NAV_SECTIONS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-const STATS = [
-  { value: '2', label: 'Disciplines combined: Data Science & UX' },
-  { value: '1', label: 'MSc in Business Analytics & Econometrics, in progress' },
-  { value: '7', label: 'Core tools: Python, R, SQL, Figma, Tableau, Power BI, SAP' },
-];
-
 const FOCUS_ITEMS = [
   {
-    title: 'Product Design',
-    content: 'Turning research and data into interfaces that people actually want to use.',
+    title: 'Data Science',
+    content: 'Statistical modeling, machine learning, and analysis that turns data into decisions.',
   },
   {
-    title: 'Data-informed UX Research',
-    content: 'Pairing qualitative research with quantitative analysis to validate what really works.',
+    title: 'UX Research',
+    content: 'Qualitative and quantitative research that keeps design grounded in real user needs.',
   },
   {
-    title: 'Growth Experiments',
-    content: 'Running structured experiments where design and statistics meet to move the needle.',
+    title: 'Human-AI Interaction',
+    content: 'Studying and designing how people and AI systems work together — trust, transparency, and usability at that boundary.',
   },
 ];
 
@@ -163,27 +157,6 @@ const App = () => {
           </Motion.div>
         </section>
 
-        {/* Stats Strip */}
-        <section className="stats-strip">
-          <Motion.div
-            className="stats-grid"
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer}
-          >
-            {STATS.map((stat) => (
-              <Motion.div className="stat-item" key={stat.label} variants={fadeUp}>
-                <span className="stat-number-wrap">
-                  <span className="stat-number">{stat.value}</span>
-                  <Squiggle variant="underline" className="stat-squiggle" />
-                </span>
-                <span className="stat-label">{stat.label}</span>
-              </Motion.div>
-            ))}
-          </Motion.div>
-        </section>
-
         {/* About Section */}
         <section id="about" className="section about-section">
           <div className="section-overlay"></div>
@@ -212,8 +185,8 @@ const App = () => {
                     and design solutions that combine user research with measurable outcomes.
                   </p>
                   <p>
-                    Seeking roles at the intersection
-                    of UX and data: product design, data‑informed UX research, or growth experiments.
+                    I see myself somewhere between a data scientist and a UX researcher — with a growing focus
+                    on Human-AI Interaction: how people and intelligent systems can work together well.
                   </p>
                 </div>
               </TiltCard>
@@ -247,7 +220,7 @@ const App = () => {
             <TiltCard className="focus-panel" variants={fadeUp} maxTilt={3}>
               <div className="focus-grid">
                 <div className="focus-intro">
-                  <p>Seeking roles at the intersection of UX and data.</p>
+                  <p>Somewhere between a data scientist, a UX researcher, and someone fascinated by how humans and AI work together.</p>
                 </div>
                 <Accordion items={FOCUS_ITEMS} />
               </div>
@@ -267,53 +240,47 @@ const App = () => {
             <Motion.h2 className="section-title" variants={fadeUp}>
               Skills
             </Motion.h2>
-            <div className="skills-pillars-container">
-              <TiltCard className="skills-card" variants={fadeUp}>
-                <h3>Data Science & Analytics</h3>
-                <p>
-                  Machine Learning <br />
-                  Statistical Analysis & Econometrics <br />
-                  Data Wrangling & Preprocessing <br />
-                  Quantitative Research <br />
-                  Programming: Python, R, SQL
-                </p>
-              </TiltCard>
-              <TiltCard className="skills-card" variants={fadeUp}>
-                <h3>UX & Product Design</h3>
-                <p>
-                  User Research (Qualitative & Quantitative) <br />
-                  UX/UI Design <br />
-                  Interaction Design <br />
-                  Prototyping & Wireframing <br />
-                  Usability Testing
-                </p>
-              </TiltCard>
-            </div>
-            <div className="section-padding"></div>
-            <div className="skills-foundation-container">
-              <TiltCard className="skills-card-down" variants={fadeUp}>
-                <div className="foundation-column">
-                  <h4>Tools & Technologies</h4>
-                  <div className="tag-mosaic-wrap">
-                    <div className="skills-list">
-                      {TOOL_TAGS.map((tag) => (
-                        <span className="skill-tag" key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
+            <TiltCard className="skills-panel" variants={fadeUp} maxTilt={3}>
+              <div className="skills-columns">
+                <div>
+                  <h3>Data Science & Analytics</h3>
+                  <p>
+                    Machine Learning <br />
+                    Statistical Analysis & Econometrics <br />
+                    Data Wrangling & Preprocessing <br />
+                    Quantitative Research <br />
+                    Programming: Python, R, SQL
+                  </p>
                 </div>
-                <div className="foundation-column">
-                  <h4>Business & Communication</h4>
-                  <div className="tag-mosaic-wrap">
-                    <div className="skills-list">
-                      {BUSINESS_TAGS.map((tag) => (
-                        <span className="skill-tag" key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
+                <div>
+                  <h3>UX & Product Design</h3>
+                  <p>
+                    User Research (Qualitative & Quantitative) <br />
+                    UX/UI Design <br />
+                    Interaction Design <br />
+                    Prototyping & Wireframing <br />
+                    Usability Testing
+                  </p>
                 </div>
-              </TiltCard>
-            </div>
+              </div>
+              <div className="skills-divider"></div>
+              <div className="foundation-column">
+                <h4>Tools & Technologies</h4>
+                <div className="skills-list">
+                  {TOOL_TAGS.map((tag) => (
+                    <span className="skill-tag" key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="foundation-column">
+                <h4>Business & Communication</h4>
+                <div className="skills-list">
+                  {BUSINESS_TAGS.map((tag) => (
+                    <span className="skill-tag" key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </TiltCard>
           </Motion.div>
         </section>
 

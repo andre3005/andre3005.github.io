@@ -17,7 +17,7 @@ const ProjectStack = ({ projects }) => {
             <Motion.div
               key={project.title}
               className="project-card project-stack-card"
-              style={{ zIndex: count - offset }}
+              style={{ zIndex: count - offset, pointerEvents: offset === 0 ? 'auto' : 'none' }}
               animate={{
                 scale: 1 - offset * 0.05,
                 y: offset * 18,
