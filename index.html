@@ -2,13 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>André Schmidt · Data science & UX research</title>
+    <meta name="description" content="André Schmidt: data science, UX research and human-AI interaction. MSc Business Analytics & Econometrics, University of Cologne.">
+    <meta name="theme-color" content="#f6f7fb">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://andre3005.github.io/">
 
-    <title>André Schmidt</title>
-    <script type="module" crossorigin src="/assets/index-BnGoatmZ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BXU1DSse.css">
+    <!-- Link previews (LinkedIn, Slack, WhatsApp, X) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="André Schmidt">
+    <meta property="og:title" content="André Schmidt · Data science & UX research">
+    <meta property="og:description" content="I build with data, and design for people. Data science, UX research and human-AI interaction.">
+    <meta property="og:url" content="https://andre3005.github.io/">
+    <meta property="og:image" content="https://andre3005.github.io/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="André Schmidt: I build with data, and design for people">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Set the theme before first paint so dark mode doesn't flash -->
+    <script>
+      (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/assets/index-C7JkGBW_.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Bq7uwPYg.css">
   </head>
   <body>
     <div id="root"></div>
