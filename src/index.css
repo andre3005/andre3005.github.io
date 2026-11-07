@@ -1,22 +1,94 @@
 :root {
-  --site-font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Neutral ramp, faintly tinted toward ink */
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --raised: #f0f2f8;
+  --ink: #14162b;
+  --ink-hover: #262a4a;
+  --on-ink: #ffffff;
+  --text: #14162b;
+  --text-2: #4a4f66;
+  --text-3: #6b7088;
+  --line: rgba(20, 22, 43, 0.08);
+  --line-strong: rgba(20, 22, 43, 0.14);
+  --hover: rgba(20, 22, 43, 0.04);
+  --grid-dot: rgba(20, 22, 43, 0.07);
+  --header-bg: rgba(255, 255, 255, 0.6);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.86);
+  --tile-sheen: rgba(255, 255, 255, 0.5);
+  --tile-edge: rgba(255, 255, 255, 0.7);
+  --backdrop: rgba(20, 22, 43, 0.36);
+
+  /* Field colors: blue = data science, violet = human-AI, peach = UX research */
+  --blue: #6f86f2;
+  --violet: #b06ae8;
+  --peach: #f7955a;
+  --violet-ink: #7a3fc4;
+  --danger: #c2413a;
+
+  /* Soft field tints for card backgrounds */
+  --tint-blue: #eef1fe;
+  --tint-violet: #f5eefd;
+  --tint-peach: #fbf1ed;
+
+  --shadow-sm: 0 1px 2px rgba(20, 22, 43, 0.05);
+  --shadow: 0 1px 2px rgba(20, 22, 43, 0.04), 0 12px 32px rgba(32, 38, 92, 0.07);
+  --shadow-lg: 0 24px 64px rgba(20, 22, 43, 0.22);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --font-display: 'Bricolage Grotesque', 'Figtree', system-ui, sans-serif;
+  --font-sans: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  font-family: var(--font-sans);
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light;
-  color: #17181c;
-  background-color: #f8f7f4;
-
-  --bg: #f8f7f4;
-  --surface: #ffffff;
-  --text: #17181c;
-  --text-muted: #5c5e66;
-  --border: #e7e4de;
-  --accent: #0057ff;
-  --accent-hover: #0046cc;
-  --accent-rgb: 0, 87, 255;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
-* {
+:root[data-theme='dark'] {
+  --bg: #0f1120;
+  --surface: #171a2d;
+  --raised: #1f2339;
+  --ink: #eef0fa;
+  --ink-hover: #d6d9ea;
+  --on-ink: #0f1120;
+  --text: #eef0fa;
+  --text-2: #b4b8cf;
+  --text-3: #8a8fa9;
+  --line: rgba(238, 240, 250, 0.08);
+  --line-strong: rgba(238, 240, 250, 0.15);
+  --hover: rgba(238, 240, 250, 0.06);
+  --grid-dot: rgba(238, 240, 250, 0.06);
+  --header-bg: rgba(23, 26, 45, 0.6);
+  --header-bg-scrolled: rgba(23, 26, 45, 0.88);
+  --tile-sheen: rgba(255, 255, 255, 0.16);
+  --tile-edge: rgba(255, 255, 255, 0.22);
+  --backdrop: rgba(5, 6, 14, 0.6);
+
+  --blue: #8196f5;
+  --violet: #bd84ee;
+  --peach: #f8a06b;
+  --violet-ink: #cfa2f5;
+  --danger: #f08a7f;
+
+  --tint-blue: #1b2140;
+  --tint-violet: #241c3c;
+  --tint-peach: #2a1f24;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 12px 32px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.55);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -24,13 +96,59 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
 }
 
 body {
-  margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg);
+  /* Lab-paper dot grid */
+  background-image: radial-gradient(var(--grid-dot) 1px, transparent 1.2px);
+  background-size: 24px 24px;
   color: var(--text);
   overflow-x: hidden;
+  transition: background-color 240ms var(--ease);
+}
+
+html.no-scroll {
+  overflow: hidden;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--violet-ink);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
